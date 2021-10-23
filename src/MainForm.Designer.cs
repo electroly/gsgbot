@@ -63,6 +63,7 @@ namespace GsgBot
             this._openSetupFileButton = new System.Windows.Forms.Button();
             this._saveSetupFileButton = new System.Windows.Forms.Button();
             this._botStatusLabel = new System.Windows.Forms.Label();
+            this._newSetupFileButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel2.SuspendLayout();
             this._twitchGroup.SuspendLayout();
             this._twitchTable.SuspendLayout();
@@ -470,6 +471,7 @@ namespace GsgBot
             // 
             this._toolbarFlow.AutoSize = true;
             this._toolbarFlow.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this._toolbarFlow.Controls.Add(this._newSetupFileButton);
             this._toolbarFlow.Controls.Add(this._openSetupFileButton);
             this._toolbarFlow.Controls.Add(this._saveSetupFileButton);
             this._toolbarFlow.Controls.Add(this._botStatusLabel);
@@ -484,7 +486,7 @@ namespace GsgBot
             // 
             this._openSetupFileButton.AutoSize = true;
             this._openSetupFileButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this._openSetupFileButton.Location = new System.Drawing.Point(13, 3);
+            this._openSetupFileButton.Location = new System.Drawing.Point(219, 3);
             this._openSetupFileButton.Name = "_openSetupFileButton";
             this._openSetupFileButton.Padding = new System.Windows.Forms.Padding(20, 5, 20, 5);
             this._openSetupFileButton.Size = new System.Drawing.Size(224, 45);
@@ -497,7 +499,7 @@ namespace GsgBot
             // 
             this._saveSetupFileButton.AutoSize = true;
             this._saveSetupFileButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this._saveSetupFileButton.Location = new System.Drawing.Point(243, 3);
+            this._saveSetupFileButton.Location = new System.Drawing.Point(449, 3);
             this._saveSetupFileButton.Name = "_saveSetupFileButton";
             this._saveSetupFileButton.Padding = new System.Windows.Forms.Padding(20, 5, 20, 5);
             this._saveSetupFileButton.Size = new System.Drawing.Size(204, 45);
@@ -512,12 +514,25 @@ namespace GsgBot
             this._botStatusLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this._botStatusLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._botStatusLabel.ForeColor = System.Drawing.Color.Red;
-            this._botStatusLabel.Location = new System.Drawing.Point(453, 0);
+            this._botStatusLabel.Location = new System.Drawing.Point(659, 0);
             this._botStatusLabel.Name = "_botStatusLabel";
             this._botStatusLabel.Size = new System.Drawing.Size(236, 51);
             this._botStatusLabel.TabIndex = 8;
             this._botStatusLabel.Text = "Bot status: OFFLINE";
             this._botStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // _newSetupFileButton
+            // 
+            this._newSetupFileButton.AutoSize = true;
+            this._newSetupFileButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this._newSetupFileButton.Location = new System.Drawing.Point(13, 3);
+            this._newSetupFileButton.Name = "_newSetupFileButton";
+            this._newSetupFileButton.Padding = new System.Windows.Forms.Padding(20, 5, 20, 5);
+            this._newSetupFileButton.Size = new System.Drawing.Size(200, 45);
+            this._newSetupFileButton.TabIndex = 9;
+            this._newSetupFileButton.Text = "📄 New setup file";
+            this._newSetupFileButton.UseVisualStyleBackColor = true;
+            this._newSetupFileButton.Click += new System.EventHandler(this.NewSetupFileButton_Click);
             // 
             // MainForm
             // 
@@ -597,6 +612,7 @@ namespace GsgBot
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Button _simulateChatMessageButton;
         private System.Windows.Forms.Button _sendMessageButton;
+        private System.Windows.Forms.Button _newSetupFileButton;
     }
 }
 

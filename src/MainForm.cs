@@ -20,7 +20,7 @@ namespace GsgBot
             Bot.TwitchUsername = _usernameText.Text = Settings.Default.TwitchUsername;
             Bot.TwitchToken = _tokenText.Text = Settings.Default.TwitchToken;
             Bot.Streamer = _streamerText.Text = Settings.Default.Streamer;
-            if (!string.IsNullOrEmpty(Settings.Default.SetupFilePath))
+            if (!string.IsNullOrEmpty(Settings.Default.SetupFilePath) && File.Exists(Settings.Default.SetupFilePath))
                 OpenSetupFile(Settings.Default.SetupFilePath);
             UpdateBotStatus();
         }
@@ -240,6 +240,14 @@ namespace GsgBot
             Settings.Default.SetupFilePath = _filePath ?? "";
             Settings.Default.Streamer = _streamerText.Text;
             Settings.Default.Save();
+        }
+
+        private void NewSetupFileButton_Click(object sender, EventArgs e)
+        {
+            _filePath = null;
+            Bot.Setup = new();
+            UpdateGamesList();
+            Text = "GSGBot";
         }
 
         private void OpenSetupFileButton_Click(object sender, EventArgs e)
