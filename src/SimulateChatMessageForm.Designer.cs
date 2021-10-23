@@ -29,37 +29,35 @@ namespace GsgBot
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label label2;
-            System.Windows.Forms.Label label1;
+            this._messageLabel = new System.Windows.Forms.Label();
+            this._userLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this._messageText = new System.Windows.Forms.TextBox();
             this._usernameText = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this._okButton = new System.Windows.Forms.Button();
             this._cancelButton = new System.Windows.Forms.Button();
-            label2 = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label2
+            // _messageLabel
             // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(18, 97);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(86, 25);
-            label2.TabIndex = 2;
-            label2.Text = "Message:";
+            this._messageLabel.AutoSize = true;
+            this._messageLabel.Location = new System.Drawing.Point(18, 97);
+            this._messageLabel.Name = "_messageLabel";
+            this._messageLabel.Size = new System.Drawing.Size(86, 25);
+            this._messageLabel.TabIndex = 2;
+            this._messageLabel.Text = "Message:";
             // 
-            // label1
+            // _userLabel
             // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(18, 15);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(96, 25);
-            label1.TabIndex = 0;
-            label1.Text = "From user:";
+            this._userLabel.AutoSize = true;
+            this._userLabel.Location = new System.Drawing.Point(18, 15);
+            this._userLabel.Name = "_userLabel";
+            this._userLabel.Size = new System.Drawing.Size(96, 25);
+            this._userLabel.TabIndex = 0;
+            this._userLabel.Text = "From user:";
             // 
             // tableLayoutPanel1
             // 
@@ -68,8 +66,8 @@ namespace GsgBot
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this._messageText, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(label2, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this._messageLabel, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this._userLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this._usernameText, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -172,8 +170,8 @@ namespace GsgBot
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TextBox _messageText;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label _messageLabel;
+        private System.Windows.Forms.Label _userLabel;
         private System.Windows.Forms.TextBox _usernameText;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button _okButton;
