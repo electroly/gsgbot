@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -28,7 +29,16 @@ namespace GsgBot
             _stopwatch = Stopwatch.StartNew();
             _guessTimer.Start();
             _helpLabel.Text = "Wait for votes, then click [🛑 STOP] when time is up.";
-            Bot.Say(_game.GuessPeriodStartMessage);
+            StringBuilder sb = new();
+            sb.Append(_game.GuessPeriodStartMessage);
+            sb.Append(" -- ");
+            var number = 1;
+            foreach (var choice in _game.PollChoices)
+            {
+                sb.Append($"Type {number} for {choice}. ");
+                number++;
+            }
+            Bot.Say(sb.ToString());
             Bot.MessageReceived += Bot_MessageReceived;
         }
 
