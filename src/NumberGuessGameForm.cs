@@ -71,9 +71,9 @@ namespace GsgBot
         private void Bot_MessageReceived(object sender, TwitchMessage e)
         {
             var user = e.Username;
-            var number_of_numbers = Regex.Match(e.Message, @"(\d+)").Groups.Count - 1;
+            var numberOfNumbers = Regex.Matches(e.Message, @"\d+").Count;
 
-            if (number_of_numbers >= 1)
+            if (numberOfNumbers >= 1)
             {
                 if (_game.GuessType == "Time")
                 {
@@ -88,7 +88,7 @@ namespace GsgBot
                 }
                 else // Number
                 {
-                    if (number_of_numbers != 1)
+                    if (numberOfNumbers != 1)
                     {
                         Bot.Whisper(user, "I'm sorry, I didn't understand your guess! Please guess a number like \"30\".");
                         return;
@@ -202,6 +202,11 @@ namespace GsgBot
             public string Username;
             public int Number;
             public TimeSpan Time;
+        }
+
+        private void NumberGuessGameForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Bot.MessageReceived -= Bot_MessageReceived;
         }
     }
 }

@@ -282,6 +282,7 @@ namespace GsgBot
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Number Guess Game";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NumberGuessGameForm_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

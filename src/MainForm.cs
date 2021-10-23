@@ -29,7 +29,8 @@ namespace GsgBot
         {
             Invoke(new Action(() =>
             {
-                _logList.Items.Insert(0, $"[{DateTime.Now:h:mm:ss tt}] {message}");
+                _logList.Items.Add(message);
+                _logList.TopIndex = _logList.Items.Count - 1;
             }));
         }
 
@@ -167,10 +168,14 @@ namespace GsgBot
             {
                 case GameType.NumberGuess:
                     {
-                        NumberGuessGameForm f = new(game)
-                        {
-                            Location = location
-                        };
+                        NumberGuessGameForm f = new(game) { Location = location };
+                        f.Show(this);
+                        break;
+                    }
+
+                case GameType.Poll:
+                    {
+                        PollGameForm f = new(game) { Location = location };
                         f.Show(this);
                         break;
                     }

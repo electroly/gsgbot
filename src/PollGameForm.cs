@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GsgBot
@@ -31,7 +27,7 @@ namespace GsgBot
             _startGuessButton.Enabled = false;
             _stopwatch = Stopwatch.StartNew();
             _guessTimer.Start();
-            _helpLabel.Text = "Wait for guesses, then click [🛑 STOP] when time is up.";
+            _helpLabel.Text = "Wait for votes, then click [🛑 STOP] when time is up.";
             Bot.Say(_game.GuessPeriodStartMessage);
             Bot.MessageReceived += Bot_MessageReceived;
         }
@@ -50,13 +46,12 @@ namespace GsgBot
         private void Bot_MessageReceived(object sender, TwitchMessage e)
         {
             var user = e.Username;
-            var number_of_numbers = Regex.Match(e.Message, @"(\d+)").Groups.Count - 1;
+            var numberOfNumbers = Regex.Matches(e.Message, @"\d+").Count;
+            var maxNumber = _game.PollChoices.Count;
 
-            var max_number = _game.PollChoices.Count;
-
-            if (number_of_numbers != 1)
+            if (numberOfNumbers != 1)
             {
-                Bot.Whisper(user, $"I'm sorry, I didn't understand your vote! Please vote a number between 1 and {max_number}.");
+                Bot.Whisper(user, $"I'm sorry, I didn't understand your vote! Please vote a number between 1 and {maxNumber}.");
                 return;
             }
 
@@ -65,9 +60,9 @@ namespace GsgBot
                 return;
 
             var number = int.Parse(match.Groups[1].Value);
-            if (number < 1 || number > max_number)
+            if (number < 1 || number > maxNumber)
             {
-                Bot.Whisper(user, $"I'm sorry, I didn't understand your vote! Please vote a number between 1 and {max_number}.");
+                Bot.Whisper(user, $"I'm sorry, I didn't understand your vote! Please vote a number between 1 and {maxNumber}.");
                 return;
             }
 
@@ -101,6 +96,17 @@ namespace GsgBot
         {
             public string Username;
             public int Number;
+        }
+
+        private void GuessTimer_Tick(object sender, EventArgs e)
+        {
+            if (_stopwatch != null)
+                _guessTimeLabel.Text = _stopwatch.Elapsed.ToString("m\\:ss");
+        }
+
+        private void PollGameForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Bot.MessageReceived -= Bot_MessageReceived;
         }
     }
 }

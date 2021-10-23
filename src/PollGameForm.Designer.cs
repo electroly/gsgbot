@@ -91,7 +91,6 @@ namespace GsgBot
             this._votesList.IntegralHeight = false;
             this._votesList.ItemHeight = 30;
             this._votesList.Location = new System.Drawing.Point(3, 60);
-            this._votesList.MultiColumn = true;
             this._votesList.Name = "_votesList";
             this._votesList.ScrollAlwaysVisible = true;
             this._votesList.Size = new System.Drawing.Size(765, 497);
@@ -147,6 +146,10 @@ namespace GsgBot
             this._guessTimeLabel.TabIndex = 1;
             this._guessTimeLabel.Text = "-:--";
             this._guessTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // _guessTimer
+            // 
+            this._guessTimer.Tick += new System.EventHandler(this.GuessTimer_Tick);
             // 
             // statusStrip1
             // 
@@ -220,6 +223,7 @@ namespace GsgBot
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Poll Game";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PollGameForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

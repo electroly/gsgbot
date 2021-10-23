@@ -56,13 +56,13 @@ namespace GsgBot
             this._logList = new System.Windows.Forms.ListBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this._simulateChatMessageButton = new System.Windows.Forms.Button();
+            this._sendMessageButton = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this._toolbarFlow = new System.Windows.Forms.FlowLayoutPanel();
             this._openSetupFileButton = new System.Windows.Forms.Button();
             this._saveSetupFileButton = new System.Windows.Forms.Button();
             this._botStatusLabel = new System.Windows.Forms.Label();
-            this._sendMessageButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel2.SuspendLayout();
             this._twitchGroup.SuspendLayout();
             this._twitchTable.SuspendLayout();
@@ -400,12 +400,13 @@ namespace GsgBot
             // _logList
             // 
             this._logList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._logList.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._logList.FormattingEnabled = true;
+            this._logList.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._logList.IntegralHeight = false;
-            this._logList.ItemHeight = 21;
+            this._logList.ItemHeight = 32;
             this._logList.Location = new System.Drawing.Point(3, 60);
             this._logList.Name = "_logList";
+            this._logList.ScrollAlwaysVisible = true;
+            this._logList.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this._logList.Size = new System.Drawing.Size(736, 377);
             this._logList.TabIndex = 0;
             // 
@@ -432,6 +433,19 @@ namespace GsgBot
             this._simulateChatMessageButton.Text = "Fake incoming chat message...";
             this._simulateChatMessageButton.UseVisualStyleBackColor = true;
             this._simulateChatMessageButton.Click += new System.EventHandler(this.SimulateChatMessageButton_Click);
+            // 
+            // _sendMessageButton
+            // 
+            this._sendMessageButton.AutoSize = true;
+            this._sendMessageButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this._sendMessageButton.Location = new System.Drawing.Point(310, 3);
+            this._sendMessageButton.Name = "_sendMessageButton";
+            this._sendMessageButton.Padding = new System.Windows.Forms.Padding(20, 5, 20, 5);
+            this._sendMessageButton.Size = new System.Drawing.Size(244, 45);
+            this._sendMessageButton.TabIndex = 9;
+            this._sendMessageButton.Text = "Send message as bot...";
+            this._sendMessageButton.UseVisualStyleBackColor = true;
+            this._sendMessageButton.Click += new System.EventHandler(this.SendMessageButton_Click);
             // 
             // statusStrip1
             // 
@@ -504,19 +518,6 @@ namespace GsgBot
             this._botStatusLabel.TabIndex = 8;
             this._botStatusLabel.Text = "Bot status: OFFLINE";
             this._botStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // _sendMessageButton
-            // 
-            this._sendMessageButton.AutoSize = true;
-            this._sendMessageButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this._sendMessageButton.Location = new System.Drawing.Point(310, 3);
-            this._sendMessageButton.Name = "_sendMessageButton";
-            this._sendMessageButton.Padding = new System.Windows.Forms.Padding(20, 5, 20, 5);
-            this._sendMessageButton.Size = new System.Drawing.Size(244, 45);
-            this._sendMessageButton.TabIndex = 9;
-            this._sendMessageButton.Text = "Send message as bot...";
-            this._sendMessageButton.UseVisualStyleBackColor = true;
-            this._sendMessageButton.Click += new System.EventHandler(this.SendMessageButton_Click);
             // 
             // MainForm
             // 
