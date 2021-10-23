@@ -38,4 +38,34 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="ChooseGameTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NumberGuessGameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NumberGuessSetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PollGameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PollSetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SendChatMessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SimulateChatMessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="WinnersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>
