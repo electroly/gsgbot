@@ -48,9 +48,27 @@ namespace GsgBot
             _startGuessButton.Enabled = true;
             _stopwatch.Stop();
             _guessTimer.Stop();
-            _helpLabel.Text = "Done! Results are below.";
             Bot.Say(_game.GuessPeriodEndMessage);
             Bot.MessageReceived -= Bot_MessageReceived;
+
+            // Pick a random winner among the people who voted the winning choice.
+            var numChoices = _game.PollChoices.Count;
+            var (winningChoice, winningChoiceUsers) = (
+                from choice in Enumerable.Range(1, numChoices)
+                let choiceUsers = _votes.Where(x => x.Value.Number == choice)
+                let choiceCount = choiceUsers.Count()
+                orderby choiceCount descending
+                select (Choice: choice, Users: choiceUsers.Select(x => x.Key).ToList())
+                ).First();
+            if (winningChoiceUsers.Any())
+            {
+                var winningUser = winningChoiceUsers[Program.Random.Next(winningChoiceUsers.Count)];
+                _helpLabel.Text = $"The winner is {winningUser}!";
+            }
+            else
+            {
+                _helpLabel.Text = "Nobody voted!";
+            }
         }
 
         private void Bot_MessageReceived(object sender, TwitchMessage e)
